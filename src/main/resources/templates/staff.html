@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Staff</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <form th:action="@{/staff}" method="post" th:object="${staff}"> 
+            <label>Id:</label>
+            <input type="text" th:field="*{id}" /><br/>
+
+            <label>Full name:</label>
+            <input type="text" th:field="*{fullname}" /><br/>
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('fullname')}" 
+            th:errors="*{fullname}"></div>
+
+            <label>Salary:</label>
+            <input type="text" th:field="*{salary}" /><br/>
+
+            <label>Email:</label>
+            <input type="text" th:field="*{email}" /><br/>
+
+            <button type="submit">Save</button>
+
+        </form>
+        
+    </body>
+</html>
