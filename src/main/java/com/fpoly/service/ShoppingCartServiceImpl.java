@@ -17,26 +17,25 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Override
     public Item add(Integer id) {
-        // TODO Auto-generated method stub
         Item item = DB.items.get(id);
         map.put(id, item);
-        return null;
+        return item;
     }
 
     @Override
     public void remove(Integer id) {
-        // TODO Auto-generated method stub
+        map.remove(id);
     }
 
     @Override
     public Item update(Integer id, int qty) {
-        // TODO Auto-generated method stub
-        return null;
+        map.get(id).setQty(qty);
+        return map.get(id);
     }
 
     @Override
     public void clear() {
-        // TODO Auto-generated method stub
+        map.clear();
     }
 
     @Override
@@ -46,13 +45,15 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Override
     public int getCount() {
-        // TODO Auto-generated method stub
-        return 0;
+        return map.size();
     }
 
     @Override
     public double getAmount() {
-        // TODO Auto-generated method stub
-        return 0;
+        double amount = 0;
+        for (Item item : map.values()) {
+            amount += item.getPrice() * item.getQty();
+        }
+        return amount;
     }
 }

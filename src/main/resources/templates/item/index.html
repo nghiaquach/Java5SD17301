@@ -13,8 +13,8 @@
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Amount</th>
+                <!-- <th scope="col">Quantity</th>
+                <th scope="col">Amount</th> -->
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -23,8 +23,8 @@
                     <td th:text="${item.id}"></td>
                     <td th:text="${item.name}"></td>
                     <td th:text="${item.price}"></td>
-                    <td th:text="${item.qty}"></td>
-                    <td th:text="${#numbers.formatInteger(item.qty*item.price,0)}"></td>
+                    <!-- <td th:text="${item.qty}"></td>
+                    <td th:text="${#numbers.formatInteger(item.qty*item.price,0)}"></td> -->
                     <td><a th:href="@{/cart/add/__${item.id}__}">Add To Cart</a></td>
                 </tr>
                 </tbody>
